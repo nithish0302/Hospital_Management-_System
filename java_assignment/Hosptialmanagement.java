@@ -54,10 +54,10 @@ public class Hosptialmanagement {
 	        String sql = "SELECT * FROM patient WHERE patient_name = ?";
 	        Connection con = Connectionclass.getconnection();
 	        try {
-	        	PreparedStatement pstmt = con.prepareStatement(sql);
+	        	PreparedStatement pst = con.prepareStatement(sql);
 
-	            pstmt.setString(1, patient_name);
-	            ResultSet rs = pstmt.executeQuery();
+	            pst.setString(1, patient_name);
+	            ResultSet rs = pst.executeQuery();
 
 	            while (rs.next()) {
 	                System.out.println("Patient ID: " + rs.getInt("patient_id"));
@@ -155,20 +155,20 @@ public class Hosptialmanagement {
 				pst.setString(4, gender);
 				pst.setString(5, dob);
 				pst.setString(6, department_name);
-				  if(department_name == "Doctor")
+				  if(department_name .equalsIgnoreCase("Doctor"))
 		          {
 		        	  department_id = 1;
 		        	
 		          }
-		          else if(department_name == "Nurse")
+		          else if(department_name .equalsIgnoreCase("Nurse"))
 		          {
 		        	  department_id = 2;
 		          }
-		          else if(department_name == "Medical")
+		          else if(department_name .equalsIgnoreCase("Medical"))
 		          {
 		        	  department_id = 3;
 		          }
-		          else if(department_name == "Receptionist")
+		          else if(department_name .equalsIgnoreCase("Receptionist"))
 		          {
 		        	  department_id = 4;
 		          }  pst.setInt(7, department_id);
@@ -217,28 +217,28 @@ public class Hosptialmanagement {
 	            pst.setString(1, staff_name);
 	            pst.setInt(2, phone_no);
 	            pst.setString(3, address);
-	            pst.setString(5, gender);
-	            pst.setString(6, dob);
-	            pst.setString(7, department_name);
-	            if(department_name == "Doctor")
+	            pst.setString(4, gender);
+	            pst.setString(5, dob);
+	            pst.setString(6, department_name);
+	            if(department_name .equalsIgnoreCase("Doctor") )
 		          {
 		        	  department_id = 1;
-		        	  pst.setInt(8, department_id);
+		        	  pst.setInt(7, department_id);
 		          }
-		          else if(department_name == "Nurse")
+		          else if(department_name .equalsIgnoreCase("Nurse"))
 		          {
 		        	  department_id = 2;
-		        	  pst.setInt(8, department_id);
+		        	  pst.setInt(7, department_id);
 		          }
-		          else if(department_name == "Medical")
+		          else if(department_name .equalsIgnoreCase("Medical") )
 		          {
 		        	  department_id = 3;
-		        	  pst.setInt(8, department_id);
+		        	  pst.setInt(7, department_id);
 		          }
-		          else if(department_name == "Receptionist")
+		          else if(department_name .equalsIgnoreCase("Receptionist"))
 		          {
 		        	  department_id = 4;
-		        	  pst.setInt(8, department_id);
+		        	  pst.setInt(7,department_id);
 		          }
 	            
 	            int affectedRows = pst.executeUpdate();
@@ -310,29 +310,29 @@ public class Hosptialmanagement {
 	  	  	int department_id = 0;
 	  	  	
 	          pst.setString(1, department_name);
-	          pst.setInt(2, 4);
-	          if(department_name == "Doctor")
+	          
+	          if(department_name .equalsIgnoreCase("Doctor") )
 	          {
 	        	  department_id = 1;
 	        	  
 	          }
-	          else if(department_name == "Nurse")
+	          else if(department_name .equalsIgnoreCase("Nurse") )
 	          {
 	        	  department_id = 2;
 	        	
 	          }
-	          else if(department_name == "Medical")
+	          else if(department_name .equalsIgnoreCase("Medical"))
 	          {
 	        	  department_id = 3;
 	        	
 	          }
-	          else if(department_name == "Receptionist")
+	          else if(department_name .equalsIgnoreCase("Receptionist") )
 	          {
 	        	  department_id = 4;
 	        	
 	          }
 	         
-	         
+	         pst.setInt(2,department_id);
 	          
 	           
 	            pst.executeUpdate();
