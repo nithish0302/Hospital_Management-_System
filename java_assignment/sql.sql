@@ -9,9 +9,9 @@ dob varchar(10),
 address varchar(30),
 phone_no int
 );
-select * from patient;
 
-drop table  Appoitnment;
+
+
 create table Appoitnment
 (
 appoinment_id int auto_increment primary key,
@@ -35,7 +35,7 @@ department_no int ,
 department_name varchar(20)
 );
 
-truncate table department;
+
 create table department 
 (
 department_name varchar(20),
@@ -43,4 +43,4 @@ department_no int
 );
 
 
-select * from patient;
+
